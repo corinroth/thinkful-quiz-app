@@ -1,0 +1,54 @@
+html {
+    color: #fffadd;
+    font-size: 62.5%;
+    font-family: 'Open Sans', sans-serif; 
+    -webkit-font-smoothing: antialiased; 
+}
+body {
+    font-size: 10px; 
+    font-size: 1rem;
+    background-color: #393438;
+    /* background-image: url('../img/clock.png'); */
+}
+.content {
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+h1 {
+    text-shadow: 2px 2px 4px #000;
+    letter-spacing: 0.6rem;
+    text-transform: uppercase;
+}
+h1 span {
+    display: block;
+}
+main {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* GENERAL SECTION STYLES */
+
+section {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 40px;
+    color: #666;
+}
+footer div {
+    margin-bottom: 1rem;
+}
+footer a:link, footer a:active, footer a:visited, footer a:hover {
+    color: #d3b268;
+}
+footer a:hover {
+    color: #bda05f;
+}
+
