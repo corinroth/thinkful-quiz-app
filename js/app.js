@@ -79,8 +79,8 @@ var quiz_questions = {
     }
 };
 
-var count;
-var score;
+var count = 0;
+var score = 0;
 var prior_questions = [];
 
 Object.size = function(obj) {
@@ -96,9 +96,10 @@ $(document).ready(function(){
     newGame();
     newQuestion();
 
-    var stuff = quiz_questions[2]["question"];
+    var stuff = quiz_questions[6]["question"];
     // console.log("testing...2. - "+stuff);
-    $('#question').text(stuff);
+    $('#question > #count').text("QUESTION "+count);
+    $('#question > #text').text(stuff);
 
 
 });
@@ -106,28 +107,28 @@ $(document).ready(function(){
 function newGame(){
     count = 0;
     score = 0;
+    var prior_questions = [];
     console.log("Game Reset - score is "+score+"/"+count);
 }
-
 function newQuestion(){
-    // var limit = quiz_questions.length;
+    prior_questions.push(2);
+    prior_questions.push(4);
+    var num = pick();
+    while (asked(num)) {
+        num = pick();
+    }
+    // prior_questions.push(num);
+}
+function pick(){
     var limit = Object.size(quiz_questions);
-    guess = Math.floor((Math.random() * limit) + 1);
-    console.log("Grabbed #"+guess);
-
-
-    prior_questions.push(guess);
-    console.log("number of prev asked questions is " + prior_questions.length);
-
-
-    for (var i=0; i>history.length; i++){
-        console.log("Checking history length"+length.history);
-        if (guess == history[i]) {
-            console.log(i+": match found");
-        } else {
-            console.log(i+": no match found");
+    return Math.floor((Math.random() * limit) + 1)
+}
+function asked(num){
+    var result = false;
+    for (var i=0;i<=prior_questions.length;i++){
+        if (num == prior_questions[i]) {
+            result = true;
         }
     }
-
-  
+    return result;
 }
