@@ -21,15 +21,28 @@
         <section id="start">
             <button id="start-btn">START QUIZ</button>
             <h2>Testimonials</h2>
-            <p><sup><i class="fa fa-quote-left"></i></sup> I can't wait to try it. It was pretty good! <sup><i class="fa fa-quote-right"></i></sup> <br> &mdash; <em>Anon</em></p>
+            <p><sup><i class="fa fa-quote-left"></i></sup> Not this again! I can't go through this again. <sup><i class="fa fa-quote-right"></i></sup> <br> &mdash; <em>Phil Conners</em></p>
             <p><sup><i class="fa fa-quote-left"></i></sup> It wasn't that hard. I'll get 5/5 correct next Tuesday. <sup><i class="fa fa-quote-right"></i></sup> <br> &mdash; <em>Anon</em></p>
             <p><sup><i class="fa fa-quote-left"></i></sup> I can't wait to try it. It was pretty good! <sup><i class="fa fa-quote-right"></i></sup> <br> &mdash; <em>Anon</em></p>
         </section>    
 
         <section id="quiz">
 
-            <div class="question-box">
-                <p id="text">In Back to the Future, how many gigawatts of electricity does it take to travel in time?</p>
+            <div id="stats">
+                <div id="stats-score">SCORE: <span id="score">0</span></div>
+                <div id="stats-progress">QUESTION: <span id="progress">1/5</span></div>
+                <hr class="clearfix">
+            </div>
+            <div id="question-box">
+                <p id="text">In Back to the Future (1985), how many gigawatts of electricity does it take to travel through time?</p>
+                <form class="answers">
+                <input type="radio" name="ans" value="1"> 9.21 <br>
+                <input type="radio" name="ans" value="2"> 1.81<br>
+                <input type="radio" name="ans" value="3"> 10.31<br>
+                <input type="radio" name="ans" value="4"> 1.21<br>
+                <input type="radio" name="ans" value="5"> 2.21<br>
+                </form>
+                <button id="submit-answer">Submit Answer</button>    
             </div>
 
         </section>

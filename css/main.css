@@ -10,6 +10,10 @@ body {
     background-color: #000047;
     background-image: url('../img/blueprint.png');
 }
+.clearfix {
+    clear: both;
+    visibility: hidden;
+}
 .content {
     width: 70%;
     margin: 0 auto;
@@ -36,17 +40,13 @@ section {
     margin-top: 4px;
     margin-bottom: 4px;
 }
-#app-ctrls {
-    display: none;
-}
 #start {
     font-size: 1.6rem;
 }
 #start h2 {
-    color: #94A3D1
-;
+    color: #94A3D1;
 }
-#start-btn {
+button {
     background-color: #66cc99;
     padding: 12px;
     border: 2px solid #000;
@@ -58,13 +58,41 @@ section {
 }
 #quiz {
     display: none;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#question-box {
     background-color: #000047;
     border: 1px solid #36c;
+    padding: 4% 10% 4% 10%;    
     font-size: 2rem;
-    padding: 4% 10% 4% 10%;
-    width: 80%;
 }
+#stats {
+    background-color: #000047;
+    border-top: 1px solid #36c;
+    border-right: 1px solid #36c;
+    border-left: 1px solid #36c;
+    padding: 10px;   
+    font-size: 1.2rem;
+}
+#stats #stats-score{
+    float: left;
+    letter-spacing: 0.2rem;
+}
+#stats #stats-progress {
+    float: right;
+    letter-spacing: 0.2rem;
+}
+#stats #score, #stats #progress {
+    color: #94A3D1;    
+} 
 
+
+#quiz form {
+    margin-left: 18%;
+    text-align: left;
+}
 
 
 

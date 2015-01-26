@@ -105,7 +105,7 @@ var quiz_questions = {
         },
         "answer": 1
     },
-    7: {
+    8: {
         "question": "In the 2009 movie Frequently Asked Questions About Time Travel, a giant version of what appears in the future?",
         "options": {
             1: "gerbel",
@@ -116,8 +116,8 @@ var quiz_questions = {
         },
         "answer": 3
     },
-    8: {
-        "question": "In Back to the Future, what was did the DeLorean's license plate read?",
+    9: {
+        "question": "In the movie Back to the Future (1985), what was did the DeLorean's license plate read?",
         "options": {
             1: "HGWELLS",
             2: "MCFLY1",
@@ -125,9 +125,23 @@ var quiz_questions = {
             4: "OUTATIME",
             5: "88MPH"
         },
+        "answer": 4
+    },
+    10: {
+        "question": "In Stephen King's novel 11/22/63, what event is the main character trying to prevent?",
+        "options": {
+            1: "U.S. involvement in Vietnam",
+            2: "The release of the Beatles first album",
+            3: "The assination of J.F.K.",
+            4: "The Cuban Missle Crisis",
+            5: "Nasa's Apollo program from going to the moon"
+        },
         "answer": 3
     }
 };
+
+
+
 
 
 Object.size = function(obj) {
