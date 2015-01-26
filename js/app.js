@@ -1,4 +1,32 @@
 
+var count = 0;
+var score = 0;
+var prior_questions = [];
+
+function QuizQuestion(question_text,question_icon,possible_answers,correct_answer){
+    
+    this.question_text = question_text;
+    this.question_icon = question_icon;
+    this.possible_answers = possible_answers;
+    this.correct_answer = correct_answer;
+
+    this.question_prompt = function(num) {
+        $('#question_heading').text("QUESTION #"+num);
+        $('#question_text').text(this.question_text);
+        $('#question_icon').text(this.question_icon);
+        $('#possible_answers').text(this.question_text);
+    }
+    
+    this.verify_answer = function(user_answer){
+        if (user_answer == this.correct_answer) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+
 var quiz_questions = {
     1: {
         "question": "In Army of Darkness, the main character travels through time with several objects, which of the below items is NOT one of these items?",
@@ -34,7 +62,7 @@ var quiz_questions = {
         "answer": 2
     },
     4: {
-        "question": "How many gigawatts of electricity does it take for time travel in the Back to The Future movies?",
+        "question": "In Back to the Future, how many gigawatts of electricity does it take to travel in time?",
         "options": {
             1: "9.21",
             2: "1.81",
@@ -76,12 +104,31 @@ var quiz_questions = {
             5: "Newf's Exceptional Escapade"
         },
         "answer": 1
+    },
+    7: {
+        "question": "In the 2009 movie Frequently Asked Questions About Time Travel, a giant version of what appears in the future?",
+        "options": {
+            1: "gerbel",
+            2: "ferret",
+            3: "ant",
+            4: "caterpiller",
+            5: "cockroach"
+        },
+        "answer": 3
+    },
+    8: {
+        "question": "In Back to the Future, what was did the DeLorean's license plate read?",
+        "options": {
+            1: "HGWELLS",
+            2: "MCFLY1",
+            3: "DRBROWN",
+            4: "OUTATIME",
+            5: "88MPH"
+        },
+        "answer": 3
     }
 };
 
-var count = 0;
-var score = 0;
-var prior_questions = [];
 
 Object.size = function(obj) {
     var size = 0, key;
@@ -91,39 +138,29 @@ Object.size = function(obj) {
     return size;
 };
 
-$(document).ready(function(){
-    
-    newGame();
-    newQuestion();
-
-    var stuff = quiz_questions[6]["question"];
-    // console.log("testing...2. - "+stuff);
-    $('#question > #count').text("QUESTION "+count);
-    $('#question > #text').text(stuff);
-
-
-});
-
 function newGame(){
     count = 0;
     score = 0;
     var prior_questions = [];
     console.log("Game Reset - score is "+score+"/"+count);
 }
-function newQuestion(){
+
+function findQuestion(){
     prior_questions.push(2);
     prior_questions.push(4);
-    var num = pick();
-    while (asked(num)) {
-        num = pick();
+    var num = pickQuestion();
+    while (wasAsked(num)) {
+        num = pickQuestion();
     }
     // prior_questions.push(num);
 }
-function pick(){
+
+function pickQuestion(){
     var limit = Object.size(quiz_questions);
     return Math.floor((Math.random() * limit) + 1)
 }
-function asked(num){
+
+function wasAsked(num){
     var result = false;
     for (var i=0;i<=prior_questions.length;i++){
         if (num == prior_questions[i]) {
@@ -132,3 +169,26 @@ function asked(num){
     }
     return result;
 }
+
+// document ready ...
+
+$(document).ready(function(){
+    
+    $("#start-btn").click(function(){
+        $("#start").fadeOut(800);
+        $("#quiz").fadeIn(800);
+    });
+
+
+    newGame();
+    findQuestion();
+
+    var stuff = quiz_questions[6]["question"];
+    $('#question > #count').text("QUESTION "+count);
+    $('#question > #text').text(stuff);
+
+
+});
+
+
+

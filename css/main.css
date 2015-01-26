@@ -7,8 +7,8 @@ html {
 body {
     font-size: 10px; 
     font-size: 1rem;
-    background-color: #393438;
-    /* background-image: url('../img/clock.png'); */
+    background-color: #000047;
+    background-image: url('../img/blueprint.png');
 }
 .content {
     width: 70%;
@@ -23,32 +23,68 @@ h1 {
 }
 h1 span {
     display: block;
+    font-size: 4.6rem;
+}
+h1 span:first-of-type {
+    font-size: 2rem;    
 }
 main {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-
-/* GENERAL SECTION STYLES */
-
 section {
     margin-top: 4px;
     margin-bottom: 4px;
 }
+#app-ctrls {
+    display: none;
+}
+#start {
+    font-size: 1.6rem;
+}
+#start h2 {
+    color: #94A3D1
+;
+}
+#start-btn {
+    background-color: #66cc99;
+    padding: 12px;
+    border: 2px solid #000;
+    color: #fff;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 1px #000;
+}
+#quiz {
+    display: none;
+    background-color: #000047;
+    border: 1px solid #36c;
+    font-size: 2rem;
+    padding: 4% 10% 4% 10%;
+    width: 80%;
+}
+
+
+
 
 /* FOOTER */
 
 footer {
     padding: 40px;
-    color: #666;
+    color: #669;
+}
+.disclaim {
+    padding-left: 20%;
+    padding-right: 20%;
 }
 footer div {
     margin-bottom: 1rem;
 }
 footer a:link, footer a:active, footer a:visited, footer a:hover {
-    color: #d3b268;
+    color: #36c;
 }
 footer a:hover {
-    color: #bda05f;
+    color: #33c;
 }
 
