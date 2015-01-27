@@ -57,6 +57,7 @@ button {
     margin-top: 2rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 1px #000;
+    cursor: pointer;
 }
 #quiz {
     display: none;
@@ -67,7 +68,7 @@ button {
 #question-box {
     background-color: #000047;
     border: 1px solid #36c;
-    padding: 4% 10% 4% 10%;    
+    padding: 3% 10% 3% 10%;    
     font-size: 2rem;
 }
 #stats {
@@ -96,13 +97,16 @@ button {
     margin-left: 18%;
     text-align: left;
 }
-
+#quiz form div {
+    margin: 0;
+    padding: 1px;
+}
 
 
 /* FOOTER */
 
 footer {
-    padding: 40px;
+    padding: 20px 40px 40px 40px;
     color: #669;
 }
 .disclaim {

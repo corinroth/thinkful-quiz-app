@@ -160,13 +160,11 @@ function newGame(){
 }
 
 function findQuestion(){
-    prior_questions.push(2);
-    prior_questions.push(4);
     var num = pickQuestion();
     while (wasAsked(num)) {
         num = pickQuestion();
     }
-    // prior_questions.push(num);
+    return num;
 }
 
 function pickQuestion(){
@@ -184,22 +182,48 @@ function wasAsked(num){
     return result;
 }
 
+function loadQuestion(num) {
+    prior_questions.push(num);
+    
+    var question_text = quiz_questions[num]["question"];
+    var option_1 = quiz_questions[num]["options"][1];
+    var option_2 = quiz_questions[num]["options"][2];
+    var option_3 = quiz_questions[num]["options"][3];
+    var option_4 = quiz_questions[num]["options"][4];
+    var option_5 = quiz_questions[num]["options"][5];
+
+    $('#question > #text').text(question_text);
+
+}
+
+
 // document ready ...
 
 $(document).ready(function(){
     
-    $("#start-btn").click(function(){
+    $("#start-btn").click(function(){       
+        var head = $("<span>The Time Travel Quiz</span>");
+        $("h1").find("span").remove();
+        $("h1").append(head);
         $("#start").fadeOut(600);
+        
+
+        newGame();
+
+        var num = findQuestion();
+
+        loadQuestion(num);
+
+        
+
         $("#quiz").fadeIn(800);
+
+
     });
 
 
-    newGame();
-    findQuestion();
 
-    var stuff = quiz_questions[6]["question"];
-    $('#question > #count').text("QUESTION "+count);
-    $('#question > #text').text(stuff);
+
 
 
 });
