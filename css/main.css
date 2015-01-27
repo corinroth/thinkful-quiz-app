@@ -87,8 +87,9 @@ button {
 #stats #score, #stats #progress {
     color: #94A3D1;    
 } 
-
-
+#quiz #icon {
+    font-size: 4rem;
+}
 #quiz form {
     margin-left: 18%;
     text-align: left;
