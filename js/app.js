@@ -128,13 +128,13 @@ var quiz_questions = {
         "answer": 4
     },
     10: {
-        "question": "In Stephen King's novel 11/22/63, what event is the main character trying to prevent?",
+        "question": "In Stephen King's novel 11/22/63, what event does the main character go back in time to try to prevent?",
         "options": {
             1: "U.S. involvement in Vietnam",
             2: "The release of the Beatles first album",
             3: "The assination of J.F.K.",
             4: "The Cuban Missle Crisis",
-            5: "Nasa's Apollo program from going to the moon"
+            5: "The Apollo moon landing"
         },
         "answer": 3
     }
@@ -189,7 +189,7 @@ function wasAsked(num){
 $(document).ready(function(){
     
     $("#start-btn").click(function(){
-        $("#start").fadeOut(800);
+        $("#start").fadeOut(600);
         $("#quiz").fadeIn(800);
     });
 
