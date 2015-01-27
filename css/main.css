@@ -42,6 +42,8 @@ section {
 }
 #start {
     font-size: 1.6rem;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 #start h2 {
     color: #94A3D1;
