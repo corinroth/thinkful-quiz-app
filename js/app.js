@@ -89,7 +89,7 @@ var quiz_questions = {
         "answer": 1
     },
     6: {
-        "icon": "ship",
+        "icon": "life-ring",
         "question": "Which time travel movie involves a scene on the Titantic?",
         "options": {
             1: "Time After Time (1979)",
@@ -113,8 +113,8 @@ var quiz_questions = {
         "answer": 1
     },
     8: {
-        "icon": "clock-o",
-        "question": "In the movie <strong>Frequently Asked Questions About Time Travel (2009)</strong>, a giant version of what appears in the future?",
+        "icon": "beer",
+        "question": "In the movie <strong>Frequently Asked Questions About Time Travel (2009)</strong>, a giant version of what appears outside the pub in the future?",
         "options": {
             1: "gerbel",
             2: "ferret",
@@ -125,7 +125,7 @@ var quiz_questions = {
         "answer": 3
     },
     9: {
-        "icon": "clock-o",
+        "icon": "car",
         "question": "In the movie <strong>Back to the Future (1985)</strong>, what was did the DeLorean's license plate read?",
         "options": {
             1: "HGWELLS",
@@ -137,7 +137,7 @@ var quiz_questions = {
         "answer": 4
     },
     10: {
-        "icon": "clock-o",
+        "icon": "calendar",
         "question": "In Stephen King's novel <strong>11/22/63</strong>, what event does the main character go back in time to try to prevent?",
         "options": {
             1: "U.S. involvement in Vietnam",
@@ -147,6 +147,18 @@ var quiz_questions = {
             5: "The Apollo moon landing"
         },
         "answer": 3
+    },
+    11: {
+        "icon": "music",
+        "question": "In the television show <strong>Life on Mars (UK 2006 &ndash; 2007)</strong>, what modern song does the main character hear that makes him think his 1970s reality might all be in his head?",
+        "options": {
+            1: "Boulevard Of Broken Dreams by Green Day",
+            2: "Hey Ya! by OutKast",
+            3: "Crazy by Gnarls Barkley",
+            4: "Toxic by Brittney Spears",
+            5: "Clocks by Coldplay"
+        },
+        "answer": 4
     }
 };
 
@@ -221,6 +233,7 @@ $(document).ready(function(){
     $("#answer-btn").click(function(){       
         var num = findQuestion();
         loadQuestion(num);
+        $('form input').prop('checked', false);
     });
 
 
