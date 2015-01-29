@@ -65,12 +65,9 @@ button {
     margin-left: auto;
     margin-right: auto;
 }
-#question-box {
-    background-color: #000047;
-    border: 1px solid #36c;
-    padding: 3% 10% 3% 10%;    
-    font-size: 2rem;
-}
+
+/* STATS */
+
 #stats {
     background-color: #000047;
     border-top: 1px solid #36c;
@@ -90,18 +87,31 @@ button {
 #stats #score, #stats #progress {
     color: #94A3D1;    
 } 
-#quiz #icon {
+
+/* QUESTION */
+
+#question {
+    background-color: #000047;
+    border: 1px solid #36c;
+    padding: 3% 10% 3% 10%;    
+    font-size: 2rem;
+}
+#question strong {
+    color: #94A3D1;
+    font-weight: normal;
+}
+#question #icon {
     font-size: 4rem;
 }
-#quiz form {
+#question form {
     margin-left: 18%;
     text-align: left;
 }
-#quiz form div {
+#question form div {
     margin: 0;
     padding: 1px;
+    font-size: 1.7rem;
 }
-
 
 /* FOOTER */
 
