@@ -1,31 +1,9 @@
 
+
+var num = 0;
 var count = 0;
 var score = 0;
 var prior_questions = [];
-
-function QuizQuestion(question_text,question_icon,possible_answers,correct_answer){
-    
-    this.question_text = question_text;
-    this.question_icon = question_icon;
-    this.possible_answers = possible_answers;
-    this.correct_answer = correct_answer;
-
-    this.question_prompt = function(num) {
-        $('#question_heading').text("QUESTION #"+num);
-        $('#question_text').text(this.question_text);
-        $('#question_icon').text(this.question_icon);
-        $('#possible_answers').text(this.question_text);
-    }
-    
-    this.verify_answer = function(user_answer){
-        if (user_answer == this.correct_answer) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-}
 
 var quiz_questions = {
     1: {
@@ -107,8 +85,8 @@ var quiz_questions = {
             1: "Norman's Awesome Experience",
             2: "Jim &amp; Billy's Great Journey",
             3: "Bob's Outstanding Journey in Time",
-            4: "Nathan's Big Adventure, You Hosers!",
-            5: "Newf's Exceptional Escapade"
+            4: "Nathan's Big Adventure, Ya Hosers!",
+            5: "The Newf's Exceptional Escapade"
         },
         "answer": 1
     },
@@ -162,10 +140,6 @@ var quiz_questions = {
     }
 };
 
-
-
-
-
 Object.size = function(obj) {
     var size = 0, key;
     for (key in obj) {
@@ -175,26 +149,23 @@ Object.size = function(obj) {
 };
 
 function newGame(){
+    num = 0;
     count = 0;
     score = 0;
-    var prior_questions = [];
-    console.log("Game Reset - score is "+score+"/"+count);
+    prior_questions = [];
+    console.log("game reset!");
 }
-
 function findQuestion(){
-    var num = pickQuestion();
-    while (wasAsked(num)) {
-        num = pickQuestion();
+    pickQuestion();
+    while (wasAsked()) {
+        pickQuestion();
     }
-    return num;
 }
-
 function pickQuestion(){
     var limit = Object.size(quiz_questions);
-    return Math.floor((Math.random() * limit) + 1)
+    num = Math.floor((Math.random() * limit) + 1)
 }
-
-function wasAsked(num){
+function wasAsked(){
     var result = false;
     for (var i=0;i<=prior_questions.length;i++){
         if (num == prior_questions[i]) {
@@ -203,8 +174,7 @@ function wasAsked(num){
     }
     return result;
 }
-
-function loadQuestion(num) {
+function loadQuestion() {
     prior_questions.push(num);    
     $('#icon').html("<i class=\"fa fa-"+quiz_questions[num]["icon"]+"\"></i>");
     $('#text').html(quiz_questions[num]["question"]);
@@ -213,9 +183,22 @@ function loadQuestion(num) {
     $('#option-3').html(quiz_questions[num]["options"][3]);
     $('#option-4').html(quiz_questions[num]["options"][4]);
     $('#option-5').html(quiz_questions[num]["options"][5]);
+    count++;
+    $('#progress').text(count+"/10");
+}
+function correct() {
+
+    // gather actual user input and set var
+
+    var user_answer = 3;
+    if (user_answer == quiz_questions[num]["answer"]) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-// document ready ...
+
 
 $(document).ready(function(){
     
@@ -225,18 +208,33 @@ $(document).ready(function(){
         $("h1").append(head);
         $("#start").fadeOut(600);        
         newGame();
-        var num = findQuestion();
-        loadQuestion(num);
+        findQuestion();
+        loadQuestion();
         $("#quiz").fadeIn(800);
     });
 
     $("#answer-btn").click(function(){       
-        var num = findQuestion();
-        loadQuestion(num);
-        $('form input').prop('checked', false);
+
+        // check if selection is blank
+
+        if (correct()) {
+            $('#quiz').fadeOut(400);
+            $('#correct').fadeIn(800);
+            score++;
+        } else {
+            $('#wrong').fadeIn(800);
+            $('#quiz').fadeOut(800);
+        }
     });
 
-
+    $(".next-btn").click(function(){       
+        $('#correct').fadeOut(800);
+        $('#wrong').fadeOut(800);
+        findQuestion();
+        loadQuestion(num);
+        $('form input').prop('checked', false);
+        $('#quiz').fadeIn(800);
+    });
 
 
 
