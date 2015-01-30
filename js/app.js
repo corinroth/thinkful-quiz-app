@@ -1,5 +1,4 @@
 
-
 var num = 0;
 var count = 0;
 var score = 0;
@@ -187,9 +186,7 @@ function loadQuestion() {
     $('#progress').text(count+"/10");
 }
 function correct() {
-
     // gather actual user input and set var
-
     var user_answer = 3;
     if (user_answer == quiz_questions[num]["answer"]) {
         return true;
@@ -199,44 +196,44 @@ function correct() {
 }
 
 
-
 $(document).ready(function(){
     
     $("#start-btn").click(function(){       
         var head = $("<span>The Time Travel Quiz</span>");
         $("h1").find("span").remove();
         $("h1").append(head);
-        $("#start").fadeOut(600);        
-        newGame();
-        findQuestion();
-        loadQuestion();
-        $("#quiz").fadeIn(800);
+        $("#start").fadeOut(500, function() {
+            newGame();
+            findQuestion();
+            loadQuestion();
+            $("#quiz").fadeIn(500);    
+        });
     });
 
     $("#answer-btn").click(function(){       
-
         // check if selection is blank
-
         if (correct()) {
-            $('#quiz').fadeOut(400);
-            $('#correct').fadeIn(800);
+            $('#quiz').fadeOut(500, function() {
+                $('#correct').fadeIn(500);    
+            });
             score++;
         } else {
-            $('#wrong').fadeIn(800);
-            $('#quiz').fadeOut(800);
+            $('#quiz').fadeOut(500, function() {
+                $('#wrong').fadeIn(500);
+            });
         }
     });
 
     $(".next-btn").click(function(){       
-        $('#correct').fadeOut(800);
-        $('#wrong').fadeOut(800);
-        findQuestion();
-        loadQuestion(num);
-        $('form input').prop('checked', false);
-        $('#quiz').fadeIn(800);
+        $('#correct').fadeOut(500, function() {
+            $('#wrong').fadeOut(500, function() {
+                findQuestion();
+                loadQuestion();
+                $('form input').prop('checked', false);
+                $('#quiz').fadeIn(500);
+            });
+        });
     });
-
-
 
 });
 

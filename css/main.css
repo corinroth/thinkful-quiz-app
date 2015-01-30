@@ -113,14 +113,18 @@ button {
     font-size: 1.7rem;
 }
 
-#correct, #wrong, #final {
-    border: 1px solid #36c;
-    background-color: #000047;
+
+.pop-up {
     display: none;
-    width: 80%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     padding: 4rem;
+    font-size: 2rem;    
+}
+#correct {
+    border: 1px solid #66cc99;
+    background-color: #002247;
 }
 #correct h2 {
     color: #66cc99;
@@ -129,12 +133,20 @@ button {
     letter-spacing: 0.4rem;
     text-transform: uppercase;
 }
+#wrong {
+    border: 1px solid #cc6699;    
+    background-color: #220047;
+}
 #wrong h2 {
     color: #cc6699;
     font-size: 3rem;
     text-shadow: 2px 2px 4px #000;
     letter-spacing: 0.4rem;
     text-transform: uppercase;
+}
+#final {
+    border: 1px solid #36c;
+    background-color: #000047;
 }
 #final h2 {
     font-size: 3rem;
