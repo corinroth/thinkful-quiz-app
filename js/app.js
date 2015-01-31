@@ -43,7 +43,7 @@ var quiz_questions = {
         "answer": 2
     },
     4: {
-        "icon": "clock-o",
+        "icon": "bolt",
         "question": "In the movie <strong>Back to the Future (1985)</strong>, how many gigawatts of electricity does it take to travel in time?",
         "options": {
             1: "9.21",
@@ -67,7 +67,7 @@ var quiz_questions = {
         "answer": 1
     },
     6: {
-        "icon": "life-ring",
+        "icon": "ship",
         "question": "Which time travel movie involves a scene on the Titantic?",
         "options": {
             1: "Time After Time (1979)",
@@ -116,7 +116,7 @@ var quiz_questions = {
     },
     10: {
         "icon": "calendar",
-        "question": "In Stephen King's novel <strong>11/22/63</strong>, what event does the main character go back in time to try to prevent?",
+        "question": "In Stephen King's 2011 novel <strong>11/22/63</strong>, what event does the main character go back in time to try to prevent?",
         "options": {
             1: "U.S. involvement in Vietnam",
             2: "The release of the Beatles first album",
@@ -149,6 +149,54 @@ var quiz_questions = {
             5: "a zeppelin"
         },
         "answer": 2
+    },
+    13: {
+        "icon": "history",
+        "question": "In Michael Crichton's 1999 book <strong>Timeline</strong>, the characters travel to which period in time?",
+        "options": {
+            1: "13th Century France",
+            2: "15th Century Spain",
+            3: "14th Century Scotland",
+            4: "13th Century Germany",
+            5: "14th Century France"
+        },
+        "answer": 5
+    },
+    14: {
+        "icon": "history",
+        "question": "Which television show included an episode in which a character goes back in time and saves Dr. Heimlich from choking - giving the doctor the idea for the Heimlich maneuver?",
+        "options": {
+            1: "Sliders (1995 &ndash; 2000)",
+            2: "Journeyman (2007)",
+            3: "Timecop (1997)",
+            4: "Quantum Leap (1989 &ndash; 1993)",
+            5: "The Time Tunnel (1966 &ndash 1967)"
+        },
+        "answer": 4
+    },
+    15: {
+        "icon": "child",
+        "question": "Which animated television show, featured time travel adventures, an anthropomorphic dog, and a girl from the future named Cupcake?",
+        "options": {
+            1: "The Fonz and the Happy Days Gang (1980 &ndash; 1982)",
+            2: "Flint the Time Detective (1998 &ndash 1999)",
+            3: "Bill &amp; Ted's Excellant Adventure (1990)",
+            4: "Gadget Boy &amp; Heather (1995)",
+            5: "Samurai Jack (2001 &ndash 2004)"
+        },
+        "answer": 1
+    },
+    16: {
+        "icon": "train",
+        "question": "<strong>Time Express (1979)</strong> was a television show about a train that took people on trips through time. Who starred in the show?",
+        "options": {
+            1: "William Shatner",
+            2: "Alan Alda",
+            3: "Vincent Price",
+            4: "Henry Winkler",
+            5: "Danny DeVito"
+        },
+        "answer": 3
     }
 };
 
