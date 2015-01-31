@@ -137,6 +137,18 @@ var quiz_questions = {
             5: "Clocks by Coldplay"
         },
         "answer": 4
+    },
+    12: {
+        "icon": "fighter-jet",
+        "question": "In the movie <strong>The Final Countdown (1980)</strong>, what travels through time?",
+        "options": {
+            1: "a steam-powered train",
+            2: "an aircraft carrier",
+            3: "a passenger airplane",
+            4: "a battleship",
+            5: "a zeppelin"
+        },
+        "answer": 2
     }
 };
 
@@ -187,9 +199,7 @@ function loadQuestion() {
     count++;
     $('#progress').text(count+"/"+count_limit);
 }
-function correct() {
-    // gather actual user input and set var
-    var user_answer = 3;
+function correct(user_answer) {
     if (user_answer == quiz_questions[num]["answer"]) {
         return true;
     } else {
@@ -201,17 +211,23 @@ function updateScore(){
 }
 function updateRank(){
     if (score == 5){
-        $('.rank').text('Time Lord 5');
+        $('.rank').text('Chronos');
+        $('.rank-msg').text('Prefect score! You are truly the god of time. Now just try not to eat your children (that kind of thing is frowned upon these days.)');
     } else if (score == 4) {
-        $('.rank').text('Time Lord 4');
+        $('.rank').text('Time Lord');
+        $('.rank-msg').text('You are a master of time and space. Time does your bidding, except for all that time you spent watching time travel movies - you can\'t get that back.');
     } else if (score == 3) {
-        $('.rank').text('Time Lord 3');
+        $('.rank').text('Time Traveling Sidekick');
+        $('.rank-msg').text('You may not be the best, but you know enough to make a good sidekick. The world needs people to keep idiots from destroying the fabric of space-time by becoming there own ancestor.');
     } else if (score == 2) {
-        $('.rank').text('Time Lord 2');
+        $('.rank').text('Time Bandit');
+        $('.rank-msg').text('An ok score - clearly not the worst, but far from the best.');
     } else if (score == 1) {
-        $('.rank').text('Time Lord 1');
+        $('.rank').text('Time Person');
+        $('.rank-msg').text('Meh. A not-so-exciting title for a not-so-exciting score. If you had the power to travel in time, you would probably use it to watch tv shows you missed - so you could save money on a DVR.');
     } else if (score == 0) {
-        $('.rank').text('Time Lord 0');
+        $('.rank').text('Time Dunce');
+        $('.rank-msg').text('The only "time traveling" you will be doing is starring at the clock while drool runs down your chin.');
     }
 }
 
@@ -230,18 +246,25 @@ $(document).ready(function() {
         });
     });
 
-    $("#answer-btn").click(function() {       
-        // check if selection is blank
-        if (correct()) {
-            $('#quiz').fadeOut(500, function() {
-                score++;
-                updateScore();
-                $('#correct').fadeIn(500);    
-            });
+    $("#answer-btn").click(function() {
+        var user_answer = $('input:radio[name=ans]:checked').val();
+        console.log(user_answer);
+        if (!user_answer) {
+            console.log("nothing selected");
+            alert('Please make a selection!');
         } else {
-            $('#quiz').fadeOut(500, function() {
-                $('#wrong').fadeIn(500);
-            });
+            console.log("selection made");    
+            if (correct(user_answer)) {
+                $('#quiz').fadeOut(500, function() {
+                    score++;
+                    updateScore();
+                    $('#correct').fadeIn(500);    
+                });
+            } else {
+                $('#quiz').fadeOut(500, function() {
+                    $('#wrong').fadeIn(500);
+                });
+            }
         }
     });
 
@@ -261,6 +284,17 @@ $(document).ready(function() {
             });
         });
     });
+
+    $("#start-over").click(function() {       
+        $("#final").fadeOut(500, function() {
+            newGame();
+            findQuestion();
+            loadQuestion();
+            $('form input').prop('checked', false);
+            $("#quiz").fadeIn(500);    
+        });
+    });
+
 
 });
 
