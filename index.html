@@ -20,7 +20,7 @@
 
         <section id="quiz">
             <div id="stats">
-                <div id="stats-score">SCORE: <span id="score">0</span></div>
+                <div id="stats-score">SCORE: <span class="score">0</span></div>
                 <div id="stats-progress">QUESTION: <span id="progress">1/5</span></div>
                 <hr class="clearfix">
             </div>
@@ -48,22 +48,24 @@
         </section>    
 
         <section id="correct" class="pop-up">
-            <h2>Correct!</h2>
-            <p>Congratulations, you are correct.<br>Perhaps I underestimated you.</p>
+            <h2>Correct!<br>+1</h2>
+            <p>Congratulations, you now have <span class="score">0</span> point(s).<br>Perhaps I underestimated you.</p>
             <br>
-            <p class="btn"><button class="next-btn">Next Question</button></p>
+            <p><button class="cont-btn">Continue</button></p>
         </section>
 
         <section id="wrong" class="pop-up">
             <h2>Wrong!</h2>
-            <p>Oh, I am so sorry.<br>However, you were very wrong.</p>
+            <p>Oh, I am sorry no points for you.<br>... you know, because you were so wrong.</p>
             <br>
-            <p class="btn"><button class="next-btn">Next Question</button></p>
+            <p><button class="cont-btn">Continue</button></p>
         </section>
 
         <section id="final" class="pop-up">
             <h2>Fin</h2>
-            <p>You Are Done!</p>
+            <p>You got a score of: <span class="score">0</span></p>
+            <p>You achieved a rank of: <span class="rank">[rank]</span></p>
+            <br>
             <p><button id="start-over">Start Over</button></p>
         </section>
 
@@ -73,7 +75,7 @@
 </main>
 <footer>
     <div class="content">
-        <div class="disclaim"><strong>Disclaimer:</strong> The Time Travel Quiz is not responsible for time-related anomalies experienced by users, including but not limited to time loopps, ancestor-based paradoxes, or butterfly effect chain reactions. Use of the quiz does not create an understanding between you and The Time Travel Quiz in the present, past, and/or future - including in any parallel dimensions or multiple universe environments.</div>
+        <div class="disclaim">Legal Disclaimer &bull; The Time Travel Quiz is not responsible for time-related anomalies experienced by users, including but not limited to time loops, ancestor-based paradoxes, or butterfly effect chain reactions. Use of the quiz does not create an understanding between you and The Time Travel Quiz in the present, past, and/or future - including in any parallel dimensions or multiple universe environments.</div>
         <div id="copyright">Copyright &copy; 2015, Edward Bryant</div>    
     </div>    
 </footer>

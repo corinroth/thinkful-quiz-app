@@ -151,14 +151,18 @@ button {
 #final h2 {
     font-size: 3rem;
 }
-
+#final .score, #final .rank {
+    font-size: 3rem;
+    color: #66cc99;
+    padding-left: 1rem;
+}
 
 
 /* FOOTER */
 
 footer {
     padding: 20px 40px 40px 40px;
-    color: #669;
+    color: #77a;
 }
 .disclaim {
     padding-left: 20%;

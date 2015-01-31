@@ -1,6 +1,7 @@
 
 var num = 0;
 var count = 0;
+var count_limit = 5;
 var score = 0;
 var prior_questions = [];
 
@@ -154,7 +155,7 @@ function newGame(){
     prior_questions = [];
     console.log("game reset!");
 }
-function findQuestion(){
+function findQuestion() {
     pickQuestion();
     while (wasAsked()) {
         pickQuestion();
@@ -164,7 +165,7 @@ function pickQuestion(){
     var limit = Object.size(quiz_questions);
     num = Math.floor((Math.random() * limit) + 1)
 }
-function wasAsked(){
+function wasAsked() {
     var result = false;
     for (var i=0;i<=prior_questions.length;i++){
         if (num == prior_questions[i]) {
@@ -182,8 +183,9 @@ function loadQuestion() {
     $('#option-3').html(quiz_questions[num]["options"][3]);
     $('#option-4').html(quiz_questions[num]["options"][4]);
     $('#option-5').html(quiz_questions[num]["options"][5]);
+    updateScore();
     count++;
-    $('#progress').text(count+"/10");
+    $('#progress').text(count+"/"+count_limit);
 }
 function correct() {
     // gather actual user input and set var
@@ -194,11 +196,29 @@ function correct() {
         return false;
     }
 }
+function updateScore(){
+    $('.score').text(score);
+}
+function updateRank(){
+    if (score == 5){
+        $('.rank').text('Time Lord 5');
+    } else if (score == 4) {
+        $('.rank').text('Time Lord 4');
+    } else if (score == 3) {
+        $('.rank').text('Time Lord 3');
+    } else if (score == 2) {
+        $('.rank').text('Time Lord 2');
+    } else if (score == 1) {
+        $('.rank').text('Time Lord 1');
+    } else if (score == 0) {
+        $('.rank').text('Time Lord 0');
+    }
+}
 
 
-$(document).ready(function(){
+$(document).ready(function() {
     
-    $("#start-btn").click(function(){       
+    $("#start-btn").click(function() {       
         var head = $("<span>The Time Travel Quiz</span>");
         $("h1").find("span").remove();
         $("h1").append(head);
@@ -210,13 +230,14 @@ $(document).ready(function(){
         });
     });
 
-    $("#answer-btn").click(function(){       
+    $("#answer-btn").click(function() {       
         // check if selection is blank
         if (correct()) {
             $('#quiz').fadeOut(500, function() {
+                score++;
+                updateScore();
                 $('#correct').fadeIn(500);    
             });
-            score++;
         } else {
             $('#quiz').fadeOut(500, function() {
                 $('#wrong').fadeIn(500);
@@ -224,13 +245,19 @@ $(document).ready(function(){
         }
     });
 
-    $(".next-btn").click(function(){       
+    $(".cont-btn").click(function() {       
         $('#correct').fadeOut(500, function() {
             $('#wrong').fadeOut(500, function() {
-                findQuestion();
-                loadQuestion();
-                $('form input').prop('checked', false);
-                $('#quiz').fadeIn(500);
+                if (count >= count_limit) {
+                    updateScore();
+                    updateRank();
+                    $('#final').fadeIn(500);
+                } else {
+                    findQuestion();
+                    loadQuestion();
+                    $('form input').prop('checked', false);
+                    $('#quiz').fadeIn(500);
+                }
             });
         });
     });
