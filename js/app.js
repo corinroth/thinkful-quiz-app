@@ -170,7 +170,7 @@ var quiz_questions = {
             2: "Journeyman (2007)",
             3: "Timecop (1997)",
             4: "Quantum Leap (1989 &ndash; 1993)",
-            5: "The Time Tunnel (1966 &ndash 1967)"
+            5: "The Time Tunnel (1966 &ndash; 1967)"
         },
         "answer": 4
     },
