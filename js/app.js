@@ -200,14 +200,6 @@ var quiz_questions = {
     }
 };
 
-Object.size = function(obj) {
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
-
 function newGame(){
     num = 0;
     count = 0;
@@ -222,7 +214,7 @@ function findQuestion() {
     }
 }
 function pickQuestion(){
-    var limit = Object.size(quiz_questions);
+    var limit = Object.keys(quiz_questions).length;
     num = Math.floor((Math.random() * limit) + 1)
 }
 function wasAsked() {
